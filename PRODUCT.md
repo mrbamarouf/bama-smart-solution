@@ -6,11 +6,11 @@ brand
 
 ## Users
 
-Homeowners, property developers, offices, retailers, hospitality operators, and project decision-makers in Saudi Arabia who need reliable networking, smart access, and connected-space solutions. Visitors should be able to understand the offer, compare the two currently available product categories, and start a product or installation inquiry.
+Homeowners, property developers, offices, retailers, hospitality operators, and project decision-makers in Saudi Arabia who need a reliable smart-technology partner. Visitors should understand the six-part product ecosystem, distinguish the two confirmed products from future category directions, and start a product or installation inquiry.
 
 ## Product Purpose
 
-BAMA Smart Solution presents a Saudi smart-technology brand that brings networking, access, and connected systems into one coherent ecosystem. The website must build trust, explain the current product offer accurately, and establish an expandable architecture for future smart-security, automation, sensor, lighting, and connected-device categories without presenting them as currently stocked.
+BAMA Smart Solution presents a broad Saudi smart-technology and smart-devices company. The website must build trust, explain the confirmed Wi-Fi 7 and Smart Access products accurately, and establish an expandable architecture spanning Smart Networking, Smart Access, Smart Security, Smart Home, Smart Sensors, and Connected Devices without presenting future categories as currently stocked.
 
 ## Brand Personality
 

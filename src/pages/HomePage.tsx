@@ -135,17 +135,8 @@ export default function HomePage() {
             const category = categories.find((item) => item.id === product.category)
             return (
               <article className={`product-showcase ${index % 2 ? 'is-reversed' : ''}`} key={product.id}>
-                <div className="product-showcase-visual">
-                  <span className="product-orbit" aria-hidden="true" />
-                  <SmartImage
-                    src={product.images[0]}
-                    alt={getProductName(product, language)}
-                    loading="lazy"
-                    fallbackLabel={getProductName(product, language)}
-                  />
-                  <span className="product-count">0{index + 1}</span>
-                </div>
                 <div className="product-showcase-copy">
+                  <span className="availability is-current">{copy.productsPage.current}</span>
                   <p className="product-category">
                     {copy.featured.category} · {category ? localize(category.name, language) : ''}
                   </p>
@@ -160,9 +151,35 @@ export default function HomePage() {
                     {copy.featured.discover}<ArrowUpRight size={18} aria-hidden="true" />
                   </Link>
                 </div>
+                <div className="product-showcase-visual">
+                  <span className="product-orbit" aria-hidden="true" />
+                  <SmartImage
+                    src={product.images[0]}
+                    alt={getProductName(product, language)}
+                    loading="lazy"
+                    fallbackLabel={getProductName(product, language)}
+                  />
+                  <span className="product-count">0{index + 1}</span>
+                </div>
               </article>
             )
           })}
+        </div>
+
+        <div className="featured-footer container">
+          <Link className="button button-primary" to={`/${language}/products`}>
+            {copy.featured.allProducts}<ArrowUpRight size={18} aria-hidden="true" />
+          </Link>
+          <div className="featured-ecosystem-preview">
+            <span>{copy.featured.ecosystemLabel}</span>
+            <nav aria-label={copy.featured.ecosystemLabel}>
+              {categories.map((category) => (
+                <Link to={`/${language}/products/${category.slug}`} key={category.id}>
+                  {localize(category.name, language)}
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
       </section>
 

@@ -65,13 +65,17 @@ export function BrandIntro({ language }: { language: Language }) {
             <i />
           </div>
           <motion.div
-            className="intro-mark-field"
+            className="intro-brand"
             initial={{ clipPath: 'inset(50% 50% 50% 50%)', opacity: 0.2 }}
             animate={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
             transition={{ delay: 2.2, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
-            <img src={siteConfig.logo} alt="BAMA Smart Solution" />
-            <span className="intro-scan" aria-hidden="true" />
+            <span className="intro-mark">
+              <img src={siteConfig.mark} alt="BAMA Smart Solution" />
+              <span className="intro-scan" aria-hidden="true" />
+            </span>
+            <strong>BAMA</strong>
+            <span className="intro-brand-line">SMART SOLUTION</span>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 8 }}

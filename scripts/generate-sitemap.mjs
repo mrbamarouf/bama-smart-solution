@@ -13,6 +13,12 @@ const base = origin.replace(/\/$/, '')
 const localizedPaths = [
   '',
   '/products',
+  '/products/networking',
+  '/products/smart-access',
+  '/products/smart-security',
+  '/products/smart-home',
+  '/products/smart-sensors',
+  '/products/connected-devices',
   '/products/wifi-7-be5010',
   '/products/smart-lock-3d',
 ]

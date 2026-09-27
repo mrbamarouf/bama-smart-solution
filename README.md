@@ -20,6 +20,12 @@ npm run build
 
 - `/en` and `/ar`
 - `/en/products` and `/ar/products`
+- `/en/products/networking` and `/ar/products/networking`
+- `/en/products/smart-access` and `/ar/products/smart-access`
+- `/en/products/smart-security` and `/ar/products/smart-security`
+- `/en/products/smart-home` and `/ar/products/smart-home`
+- `/en/products/smart-sensors` and `/ar/products/smart-sensors`
+- `/en/products/connected-devices` and `/ar/products/connected-devices`
 - `/en/products/wifi-7-be5010` and `/ar/products/wifi-7-be5010`
 - `/en/products/smart-lock-3d` and `/ar/products/smart-lock-3d`
 - Localized 404 routes
@@ -32,7 +38,7 @@ npm run build
 - Bilingual editorial copy: `src/content.ts`
 - Design context: `PRODUCT.md` and `DESIGN.md`
 
-New products can be added without changing the page architecture. Each record supports bilingual names and descriptions, images, features, specifications, status, featured state, and display order.
+New categories and products can be added without changing the page architecture. Category records contain bilingual editorial content, campaign imagery, future product examples, route slugs, and explicit availability states. Product records support bilingual names and descriptions, images, features, specifications, status, featured state, and display order.
 
 ## Company information still required
 
@@ -40,7 +46,7 @@ Add the official WhatsApp number, phone number, and email address in `src/config
 
 ## Assets
 
-The supplied approved logo is preserved at `public/images/bama-logo-approved-source.png`. The transparent production logo and favicon are derived from that approved mark. The architectural hero, use-case panorama, Wi-Fi access point, and smart-lock visuals were generated specifically for this website and are stored locally under `public/images`.
+The supplied approved logo is preserved at `public/images/bama-logo-approved-source.png`. The transparent production logo, isolated transparent mark, and favicon are derived from that approved artwork. The architectural hero, use-case panorama, confirmed-product imagery, and four future-category campaign visuals are stored locally under `public/images`.
 
 ## Deployment
 

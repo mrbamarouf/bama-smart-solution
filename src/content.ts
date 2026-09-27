@@ -14,7 +14,7 @@ export const content = {
     explore: 'Explore solutions',
     hero: {
       title: ['Smarter connections.', 'Smarter access.', 'One ecosystem.'],
-      body: 'BAMA Smart Solution brings intelligent networking, smart access and connected technology together for modern spaces.',
+      body: 'BAMA Smart Solution brings networking, access, security, home intelligence, sensors and connected devices into one expandable ecosystem.',
       secondary: 'View products',
       signal: 'One connected smart ecosystem',
     },
@@ -51,10 +51,12 @@ export const content = {
       ],
     },
     featured: {
-      title: 'Technology, selected for real life.',
-      intro: 'Two focused starting points for a wider connected environment.',
+      title: 'Featured smart products',
+      intro: 'Two confirmed products. One much wider smart-technology direction.',
       discover: 'Discover product',
       category: 'Category',
+      allProducts: 'Explore All Smart Products',
+      ecosystemLabel: 'The wider BAMA ecosystem',
     },
     ecosystem: {
       title: 'One smart ecosystem',
@@ -83,8 +85,8 @@ export const content = {
     },
     about: {
       title: 'Technology that belongs in the space.',
-      body1: 'BAMA Smart Solution is building a connected technology ecosystem for modern homes and businesses.',
-      body2: 'We select practical smart technologies and bring networking, access and connected systems together through one clear experience.',
+      body1: 'BAMA Smart Solution is building a broad smart-technology ecosystem for modern homes and businesses.',
+      body2: 'We connect networking, access, security, home intelligence, sensors and future devices through one clear, expandable experience.',
     },
     future: {
       title: ['Today, connectivity and access.', 'Tomorrow, the whole smart space.'],
@@ -105,9 +107,23 @@ export const content = {
       copyright: '© 2026 BAMA Smart Solution.',
     },
     productsPage: {
-      title: 'Products for connected environments.',
-      body: 'Explore the first BAMA product categories. The catalogue is structured to grow as new smart technologies become available.',
-      current: 'Current product',
+      title: 'Smart Products',
+      body: 'Six connected product worlds establish the full BAMA direction. Wi-Fi 7 and Smart Access are confirmed now; the remaining categories show how the ecosystem is designed to grow.',
+      current: 'Available now',
+      future: 'Coming to the ecosystem',
+      viewCategory: 'Explore category',
+      confirmedProduct: 'Confirmed product',
+      categoryDirection: 'Category direction',
+      allProducts: 'All Smart Products',
+    },
+    categoryPage: {
+      back: 'All Smart Products',
+      available: 'Available now',
+      future: 'Coming to the ecosystem',
+      confirmed: 'Confirmed product',
+      direction: 'Future category direction',
+      examples: 'Planned category scope',
+      viewProduct: 'View product',
     },
     detail: {
       overview: 'Overview',
@@ -140,7 +156,7 @@ export const content = {
     explore: 'استكشف الحلول',
     hero: {
       title: ['اتصال أذكى.', 'دخول أذكى.', 'منظومة واحدة.'],
-      body: 'تجمع BAMA Smart Solution حلول الشبكات الذكية وأنظمة الدخول والتقنيات المتصلة في تجربة واحدة للمساحات الحديثة.',
+      body: 'تجمع BAMA Smart Solution الشبكات والدخول والأمان والمنزل الذكي والحساسات والأجهزة المتصلة ضمن منظومة واحدة قابلة للتوسع.',
       secondary: 'عرض المنتجات',
       signal: 'منظومة ذكية متصلة واحدة',
     },
@@ -177,10 +193,12 @@ export const content = {
       ],
     },
     featured: {
-      title: 'تقنيات مختارة للحياة الذكية.',
-      intro: 'نقطتا بداية واضحتان لبيئة متصلة أوسع.',
+      title: 'المنتجات الذكية المختارة',
+      intro: 'منتجان مؤكدان اليوم، وتوجه أوسع بكثير للتقنيات الذكية.',
       discover: 'اكتشف المنتج',
       category: 'الفئة',
+      allProducts: 'استكشف جميع المنتجات الذكية',
+      ecosystemLabel: 'منظومة BAMA الأوسع',
     },
     ecosystem: {
       title: 'منظومة ذكية واحدة',
@@ -209,8 +227,8 @@ export const content = {
     },
     about: {
       title: 'تقنية تنتمي إلى المساحة.',
-      body1: 'تبني BAMA Smart Solution منظومة تقنية متصلة للمنازل والأعمال الحديثة.',
-      body2: 'نختار حلولاً ذكية عملية ونجمع الشبكات وأنظمة الدخول والتقنيات المتصلة ضمن تجربة واحدة واضحة ومتكاملة.',
+      body1: 'تبني BAMA Smart Solution منظومة واسعة للتقنيات الذكية للمنازل والأعمال الحديثة.',
+      body2: 'نجمع الشبكات والدخول والأمان والمنزل الذكي والحساسات والأجهزة المستقبلية ضمن تجربة واحدة واضحة وقابلة للتوسع.',
     },
     future: {
       title: ['اليوم اتصال ودخول ذكي.', 'غداً منظومة متكاملة للمساحة الذكية.'],
@@ -231,9 +249,23 @@ export const content = {
       copyright: '© 2026 BAMA Smart Solution.',
     },
     productsPage: {
-      title: 'منتجات لمساحات أكثر اتصالاً.',
-      body: 'استكشف فئات منتجات BAMA الأولى. صُممت بنية الكتالوج لتتوسع مع توفر تقنيات ذكية جديدة.',
-      current: 'منتج متوفر حالياً',
+      title: 'المنتجات الذكية',
+      body: 'ستة عوالم مترابطة توضح التوجه الكامل لـ BAMA. يتوفر Wi-Fi 7 والدخول الذكي كمنتجات مؤكدة، بينما توضح الفئات الأخرى مسار توسع المنظومة.',
+      current: 'متوفر حالياً',
+      future: 'قريباً ضمن المنظومة',
+      viewCategory: 'استكشف الفئة',
+      confirmedProduct: 'منتج مؤكد',
+      categoryDirection: 'توجه الفئة',
+      allProducts: 'جميع المنتجات الذكية',
+    },
+    categoryPage: {
+      back: 'جميع المنتجات الذكية',
+      available: 'متوفر حالياً',
+      future: 'قريباً ضمن المنظومة',
+      confirmed: 'منتج مؤكد',
+      direction: 'توجه مستقبلي للفئة',
+      examples: 'النطاق المخطط للفئة',
+      viewProduct: 'عرض المنتج',
     },
     detail: {
       overview: 'نظرة عامة',

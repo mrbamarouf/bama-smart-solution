@@ -35,7 +35,7 @@ Most structure is square-edged or softly chamfered. Cards, when functionally nec
 
 ### Navigation
 
-A thin floating header overlays the hero. It gains a near-black translucent surface on scroll. The approved logo always sits on a clean white field so its original navy wordmark remains unchanged and legible.
+A thin floating header overlays the hero. It gains a near-black translucent surface on scroll. The approved transparent BAMA mark appears directly on the dark environment with no card, white field, or enclosing shape.
 
 ### Buttons
 
@@ -43,7 +43,11 @@ Primary actions use Electric Blue with white text. Secondary actions use a restr
 
 ### Product Showcase
 
-Large editorial split layouts alternate image and information. Product specifications appear as a measured technical list, never as retail pricing cards.
+Large editorial split layouts alternate image and information within a 1440px composition. Confirmed products use substantial isolated product renders; future categories use their own campaign worlds. Product specifications appear as a measured technical list, never as retail pricing cards.
+
+### Product Categories
+
+Six editorial chapters—Networking, Access, Security, Home, Sensors, and Connected Devices—share the same navy/cobalt visual universe while varying image treatment, section rhythm, and supporting information. Status language always distinguishes `available`, `comingSoon`, and `futureCategory` content.
 
 ### Connected Diagram
 
@@ -51,7 +55,7 @@ The smart-ecosystem visual uses an architectural image, thin blue paths, and key
 
 ### Intro
 
-A five-to-six second, session-only brand reveal. Paths converge, a light field reveals the approved logo, and the site is never blocked when reduced motion is requested.
+A five-to-six second, session-only brand reveal. Signal paths converge around the transparent BAMA mark, followed by the BAMA SMART SOLUTION name and tagline. No logo card or white field is used, and the site is never blocked when reduced motion is requested.
 
 ## Motion
 

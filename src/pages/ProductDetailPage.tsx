@@ -114,8 +114,8 @@ export default function ProductDetailPage() {
           <span>{copy.detail.related}</span>
           <h2>{category ? localize(category.name, language) : ''}</h2>
           <p>{category ? localize(category.description, language) : ''}</p>
-          <Link className="text-link light" to={`/${language}#solutions`}>
-            {copy.explore}<ArrowUpRight size={18} aria-hidden="true" />
+          <Link className="text-link light" to={`/${language}/products/${category?.slug ?? ''}`}>
+            {copy.productsPage.viewCategory}<ArrowUpRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </section>
