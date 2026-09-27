@@ -2211,7 +2211,7 @@ p {
   align-items: center;
   color: var(--white);
   text-align: center;
-  filter: drop-shadow(0 0 30px rgba(8, 104, 242, 0.18));
+  filter: none;
 }
 
 .intro-mark {
