@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check, Radio } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { DesktopSectionContent } from '../components/DesktopSectionContent'
 import { Seo } from '../components/Seo'
 import { SmartImage } from '../components/SmartImage'
 import { content } from '../content'
@@ -67,43 +68,46 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="category-world-copy">
-                  <div className="category-world-meta">
-                    <span className="category-serial">0{category.order}</span>
-                    <span className="category-signal" aria-hidden="true"><i /><i /></span>
-                  </div>
-                  <span className={`availability ${isFuture ? '' : 'is-current'}`}>
-                    {isFuture ? copy.productsPage.future : copy.productsPage.current}
-                  </span>
-                  <p className="category-kicker">
-                    {isFuture ? copy.productsPage.categoryDirection : copy.productsPage.confirmedProduct}
-                  </p>
-                  <h2 id={`${category.slug}-title`}>{localize(category.name, language)}</h2>
-                  <p className="category-description">{localize(category.description, language)}</p>
-                  <p className="category-direction">{localize(category.direction, language)}</p>
+                  <DesktopSectionContent
+                    index={category.order}
+                    indexClassName="category-serial"
+                    indexRowClassName="category-world-meta"
+                    indexAdornment={<span className="category-signal" aria-hidden="true"><i /><i /></span>}
+                  >
+                    <span className={`availability ${isFuture ? '' : 'is-current'}`}>
+                      {isFuture ? copy.productsPage.future : copy.productsPage.current}
+                    </span>
+                    <p className="category-kicker">
+                      {isFuture ? copy.productsPage.categoryDirection : copy.productsPage.confirmedProduct}
+                    </p>
+                    <h2 id={`${category.slug}-title`}>{localize(category.name, language)}</h2>
+                    <p className="category-description">{localize(category.description, language)}</p>
+                    <p className="category-direction">{localize(category.direction, language)}</p>
 
-                  {product && (
-                    <div className="confirmed-product-line">
-                      <Radio size={18} aria-hidden="true" />
-                      <div>
-                        <strong>{getProductName(product, language)}</strong>
-                        <span>{getProductShortDescription(product, language)}</span>
+                    {product && (
+                      <div className="confirmed-product-line">
+                        <Radio size={18} aria-hidden="true" />
+                        <div>
+                          <strong>{getProductName(product, language)}</strong>
+                          <span>{getProductShortDescription(product, language)}</span>
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  <ul className="category-products-list">
-                    {category.futureProducts.map((item) => (
-                      <li key={item.name.en}>
-                        <Check size={15} aria-hidden="true" />
-                        <span>{localize(item.name, language)}</span>
-                        <small>{copy.productsPage.future}</small>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="category-products-list">
+                      {category.futureProducts.map((item) => (
+                        <li key={item.name.en}>
+                          <Check size={15} aria-hidden="true" />
+                          <span>{localize(item.name, language)}</span>
+                          <small>{copy.productsPage.future}</small>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <Link className="text-link category-link" to={`/${language}/products/${category.slug}`}>
-                    {copy.productsPage.viewCategory}<ArrowUpRight size={18} aria-hidden="true" />
-                  </Link>
+                    <Link className="text-link category-link" to={`/${language}/products/${category.slug}`}>
+                      {copy.productsPage.viewCategory}<ArrowUpRight size={18} aria-hidden="true" />
+                    </Link>
+                  </DesktopSectionContent>
                 </div>
               </div>
             </section>

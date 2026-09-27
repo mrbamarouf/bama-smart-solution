@@ -683,7 +683,6 @@ p {
 }
 
 .solution-copy {
-  position: relative;
   padding: 70px clamp(44px, 5vw, 86px) 70px 30px;
   display: flex;
   flex-direction: column;
@@ -694,16 +693,32 @@ p {
   padding: 70px 30px 70px clamp(44px, 5vw, 86px);
 }
 
+.desktop-section-content {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  direction: inherit;
+  text-align: start;
+}
+
+[dir='rtl'] .desktop-section-content {
+  direction: rtl;
+  text-align: right;
+}
+
+.desktop-section-index {
+  text-align: inherit;
+}
+
 .solution-number {
-  position: absolute;
-  top: 34px;
-  inset-inline-start: 30px;
+  margin-bottom: 24px;
   color: #526176;
   font-size: 0.78rem;
   font-weight: 700;
 }
 
-.solution-copy > svg {
+.solution-copy .desktop-section-content > svg {
   margin-bottom: 26px;
   color: var(--blue);
 }
@@ -749,7 +764,7 @@ p {
   letter-spacing: -0.01em;
 }
 
-.solution-copy > p {
+.solution-copy .desktop-section-content > p {
   max-width: 550px;
   margin-top: 22px;
   color: #526176;
@@ -2463,8 +2478,6 @@ p {
 
 .page-index,
 .hero-index,
-.category-serial,
-.solution-number,
 .product-count {
   direction: ltr;
   unicode-bidi: isolate;

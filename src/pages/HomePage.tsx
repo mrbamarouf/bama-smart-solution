@@ -17,6 +17,7 @@ import {
 import { motion } from 'motion/react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { DesktopSectionContent } from '../components/DesktopSectionContent'
 import { Seo } from '../components/Seo'
 import { SmartImage } from '../components/SmartImage'
 import { hasConfiguredContact } from '../config/contact'
@@ -95,16 +96,17 @@ export default function HomePage() {
             return (
               <article className={`solution-world ${index % 2 ? 'is-reversed' : ''}`} key={item.title}>
                 <div className="solution-copy">
-                  <div className="solution-number">{item.number}</div>
-                  <Icon size={30} strokeWidth={1.4} aria-hidden="true" />
-                  <span className={`availability ${current ? 'is-current' : ''}`}>
-                    {current ? copy.solutions.current : copy.solutions.future}
-                  </span>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                  <ul>
-                    {item.points.map((point) => <li key={point}><Check size={16} aria-hidden="true" />{point}</li>)}
-                  </ul>
+                  <DesktopSectionContent index={index + 1} indexClassName="solution-number">
+                    <Icon size={30} strokeWidth={1.4} aria-hidden="true" />
+                    <span className={`availability ${current ? 'is-current' : ''}`}>
+                      {current ? copy.solutions.current : copy.solutions.future}
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.body}</p>
+                    <ul>
+                      {item.points.map((point) => <li key={point}><Check size={16} aria-hidden="true" />{point}</li>)}
+                    </ul>
+                  </DesktopSectionContent>
                 </div>
                 <div className={`solution-visual solution-visual-${index + 1}`}>
                   {current ? (
