@@ -1,0 +1,167 @@
+.m-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #02090f;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: env(safe-area-inset-top) 24px env(safe-area-inset-bottom);
+  overflow: hidden;
+}
+.m-intro-logo {
+  position: absolute;
+  top: 24%;
+  z-index: 1;
+  animation: m-logo-in 1.1s ease-out both;
+}
+.m-intro-copy {
+  position: absolute;
+  top: 61%;
+  text-align: center;
+  z-index: 1;
+}
+.m-intro-copy p {
+  font-size: 24px;
+  line-height: 1.65;
+  font-weight: 600;
+  margin: 0 0 14px;
+}
+.m-intro-copy > span {
+  font-size: 11px;
+  letter-spacing: 0.075em;
+}
+.m-signal {
+  position: absolute;
+  top: 50%;
+  left: -15%;
+  width: 130%;
+  height: 90px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 166, 255, 0.38),
+    transparent 65%
+  );
+}
+.m-signal i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #0099ff,
+    #e3faff,
+    #0099ff,
+    transparent
+  );
+  transform: rotate(-13deg);
+  box-shadow: 0 0 9px #009fff;
+}
+.m-signal i:nth-child(2) {
+  transform: rotate(13deg);
+  opacity: 0.7;
+}
+.m-signal i:nth-child(3) {
+  transform: rotate(0);
+  opacity: 0.3;
+}
+.m-intro-bottom {
+  position: absolute;
+  bottom: max(7%, env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 26px;
+}
+.m-intro-progress {
+  width: 132px;
+  height: 3px;
+  background: #23313c;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.m-intro-progress i {
+  display: block;
+  height: 100%;
+  background: #009bff;
+  transform-origin: left;
+  animation: m-intro-progress 5.6s linear both;
+}
+.m-intro-bottom button {
+  min-height: 44px;
+  padding: 0 20px;
+  background: #08121a;
+  border: 1px solid #19242e;
+  color: #fff;
+  border-radius: 24px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+@keyframes m-logo-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes m-intro-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+@media (max-width: 1023px) {
+  body {
+    min-width: 0 !important;
+    background: #040c12;
+  }
+  .page-loader {
+    min-width: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .m-intro * {
+    animation: none !important;
+  }
+}
+/* The supplied full logo, rendered white without changing its approved letterforms. */
+.m-brand {
+  display: block;
+  width: 76px;
+  line-height: 1;
+}
+.m-brand .m-brand-art {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 978/818;
+  overflow: hidden;
+  margin: 0;
+}
+.m-brand .m-brand-art > img {
+  position: absolute;
+  width: 128.23%;
+  max-width: none;
+  height: auto;
+  left: -14.31%;
+  top: -30.32%;
+  margin: 0;
+  filter: brightness(0) invert(1);
+}
+.m-intro .m-brand {
+  width: 174px;
+}
+.m-intro-progress i {
+  animation-duration: 5s;
+}

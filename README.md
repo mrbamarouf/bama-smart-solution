@@ -51,3 +51,7 @@ The supplied approved logo is preserved at `public/images/bama-logo-approved-sou
 ## Deployment
 
 `vercel.json` provides the SPA rewrite required for direct route access. If this repository is already linked to Vercel, pushing the `main` branch can update the existing project without creating a duplicate.
+
+## Dedicated mobile experience
+
+Widths below 1024px use a separately composed, lazy-loaded mobile interface. Desktop pages and shared product/category records remain unchanged. See [mobile implementation and verification](docs/MOBILE-IMPLEMENTATION.md) for the mobile components, asset provenance and browser-test instructions.

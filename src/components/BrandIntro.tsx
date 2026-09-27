@@ -1,94 +1,162 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
-import { useEffect, useState } from 'react'
-import { content } from '../content'
-import { siteConfig } from '../config/site'
-import type { Language } from '../types'
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { useEffect, useState } from "react";
+import { content } from "../content";
+import { siteConfig } from "../config/site";
+import type { Language } from "../types";
+import { useMobileViewport } from "../mobile/useMobileViewport";
+import { MobileBrand } from "../mobile/MobileBrand";
+import "../mobile/intro.css";
 
-const INTRO_KEY = 'bama-intro-seen'
+const INTRO_KEY = "bama-intro-seen";
 
 export function BrandIntro({ language }: { language: Language }) {
-  const reducedMotion = useReducedMotion()
+  const mobile = useMobileViewport();
+  const reducedMotion = useReducedMotion();
   const [visible, setVisible] = useState(() => {
     try {
-      return sessionStorage.getItem(INTRO_KEY) !== 'true'
+      return sessionStorage.getItem(INTRO_KEY) !== "true";
     } catch {
-      return false
+      return false;
     }
-  })
+  });
 
   useEffect(() => {
-    if (!visible) return
+    if (!mobile || !visible || reducedMotion) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [mobile, visible, reducedMotion]);
+
+  useEffect(() => {
+    if (!visible) return;
     if (reducedMotion) {
       try {
-        sessionStorage.setItem(INTRO_KEY, 'true')
+        sessionStorage.setItem(INTRO_KEY, "true");
       } catch {
         // The page remains usable when storage is unavailable.
       }
-      return
+      return;
     }
 
-    const timer = window.setTimeout(() => {
-      try {
-        sessionStorage.setItem(INTRO_KEY, 'true')
-      } catch {
-        // The intro still dismisses without session storage.
-      }
-      setVisible(false)
-    }, 5600)
+    const timer = window.setTimeout(
+      () => {
+        try {
+          sessionStorage.setItem(INTRO_KEY, "true");
+        } catch {
+          // The intro still dismisses without session storage.
+        }
+        setVisible(false);
+      },
+      mobile ? 5000 : 5600,
+    );
 
-    return () => window.clearTimeout(timer)
-  }, [reducedMotion, visible])
+    return () => window.clearTimeout(timer);
+  }, [mobile, reducedMotion, visible]);
 
   const dismiss = () => {
     try {
-      sessionStorage.setItem(INTRO_KEY, 'true')
+      sessionStorage.setItem(INTRO_KEY, "true");
     } catch {
       // The intro still dismisses without session storage.
     }
-    setVisible(false)
-  }
+    setVisible(false);
+  };
 
   return (
     <AnimatePresence>
       {visible && !reducedMotion && (
         <motion.div
-          className="brand-intro"
+          className={mobile ? "m-intro" : "brand-intro"}
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, filter: 'blur(8px)' }}
+          exit={{ opacity: 0, filter: "blur(8px)" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           aria-label={siteConfig.brand}
+          role={mobile ? "dialog" : undefined}
+          aria-modal={mobile ? true : undefined}
+          onKeyDown={
+            mobile
+              ? (event) => {
+                  if (event.key === "Tab") event.preventDefault();
+                  if (event.key === "Escape") dismiss();
+                }
+              : undefined
+          }
         >
-          <div className="intro-network" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-            <i />
-          </div>
-          <motion.div
-            className="intro-brand"
-            initial={{ clipPath: 'inset(50% 50% 50% 50%)', opacity: 0.2 }}
-            animate={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
-            transition={{ delay: 2.2, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="intro-mark">
-              <img src={siteConfig.markWhite} alt="BAMA Smart Solution" />
-              <span className="intro-scan" aria-hidden="true" />
-            </span>
-            <strong>BAMA</strong>
-            <span className="intro-brand-line">SMART SOLUTION</span>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 3.75, duration: 0.8 }}
-          >
-            {content[language].introLine}
-          </motion.p>
-          <button className="intro-skip" type="button" onClick={dismiss}>
-            {content[language].skip}
-          </button>
+          {mobile ? (
+            <>
+              <div className="m-intro-logo">
+                <MobileBrand />
+              </div>
+              <div className="m-signal" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+              </div>
+              <div
+                className="m-intro-copy"
+                dir={language === "ar" ? "rtl" : "ltr"}
+              >
+                {language === "ar" && (
+                  <p>
+                    نربط اليوم
+                    <br />
+                    بمستقبل أكثر ذكاءً
+                  </p>
+                )}
+                <span lang="en" dir="ltr">
+                  CONNECTING A SMARTER TOMORROW
+                </span>
+              </div>
+              <div className="m-intro-bottom">
+                <span className="m-intro-progress" aria-hidden="true">
+                  <i />
+                </span>
+                <button type="button" autoFocus onClick={dismiss}>
+                  {content[language].skip}
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="intro-network" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
+              <motion.div
+                className="intro-brand"
+                initial={{ clipPath: "inset(50% 50% 50% 50%)", opacity: 0.2 }}
+                animate={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
+                transition={{
+                  delay: 2.2,
+                  duration: 1.5,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
+                <span className="intro-mark">
+                  <img src={siteConfig.markWhite} alt="BAMA Smart Solution" />
+                  <span className="intro-scan" aria-hidden="true" />
+                </span>
+                <strong>BAMA</strong>
+                <span className="intro-brand-line">SMART SOLUTION</span>
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 3.75, duration: 0.8 }}
+              >
+                {content[language].introLine}
+              </motion.p>
+              <button className="intro-skip" type="button" onClick={dismiss}>
+                {content[language].skip}
+              </button>
+            </>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }

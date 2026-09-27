@@ -51,7 +51,8 @@ function RouteEffects() {
 
       const target = document.getElementById(targetId)
       if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        target.scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' })
         return
       }
 
@@ -61,7 +62,7 @@ function RouteEffects() {
 
     timer = window.setTimeout(moveToRouteTarget, 60)
     return () => window.clearTimeout(timer)
-  }, [location.hash, location.pathname])
+  }, [location.hash, location.pathname, location.key])
 
   return <BrandIntro language={routeLanguage} />
 }

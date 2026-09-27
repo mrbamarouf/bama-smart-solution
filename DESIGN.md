@@ -63,4 +63,8 @@ Use exponential ease-out curves. Prefer opacity, transform, clip-path, line draw
 
 ## Responsive Direction
 
-Phase 1 is optimized at desktop widths of 1366px, 1440px, and 1920px. Layout primitives remain componentized so Phase 2 can replace composition rules for a dedicated mobile experience without changing data, localization, routes, or content architecture.
+Desktop composition remains optimized at 1366px, 1440px, and 1920px. Phase 2 uses dedicated mobile components below 1024px while sharing product records, localization, routes and contact configuration.
+
+The approved nine-screen mobile reference governs phone composition: near-black surfaces throughout, a white transparent logo with the supplied letterforms, a full-height architectural hero, near-full-screen navigation, vertical category rows, unboxed product renders, an architectural ecosystem diagram, four photographic use-case rows, and compact contact/footer sections. Arabic uses true RTL and right-aligned editorial text; English uses its own LTR composition. Latin specifications are isolated with `bdi`.
+
+The primary target is 390px with additional layouts at 360, 375, 393, 412 and 430px. Mobile body text uses 14–15px to match the approved reference, section headings 23–25px and hero headings 32–35px. Touch targets are at least 44px. Phone sections use safe-area insets and `svh`/`dvh`, with short-viewport and landscape handling. Mobile-specific WebP assets avoid fetching the full desktop imagery. Physical-device testing remains distinct from browser-engine emulation.
