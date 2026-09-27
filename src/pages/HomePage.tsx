@@ -39,6 +39,7 @@ export default function HomePage() {
   const language = useLanguage()
   const copy = content[language]
   const [activeUseCase, setActiveUseCase] = useState(0)
+  const [activeEcosystem, setActiveEcosystem] = useState<number | null>(null)
   const [selectedInquiry, setSelectedInquiry] = useState(0)
 
   return (
@@ -136,7 +137,10 @@ export default function HomePage() {
             return (
               <article className={`product-showcase ${index % 2 ? 'is-reversed' : ''}`} key={product.id}>
                 <div className="product-showcase-copy">
-                  <span className="availability is-current">{copy.productsPage.current}</span>
+                  <div className="product-showcase-meta">
+                    <span className="product-count">0{index + 1}</span>
+                    <span className="availability is-current">{copy.productsPage.current}</span>
+                  </div>
                   <p className="product-category">
                     {copy.featured.category} · {category ? localize(category.name, language) : ''}
                   </p>
@@ -159,7 +163,6 @@ export default function HomePage() {
                     loading="lazy"
                     fallbackLabel={getProductName(product, language)}
                   />
-                  <span className="product-count">0{index + 1}</span>
                 </div>
               </article>
             )
@@ -202,10 +205,12 @@ export default function HomePage() {
             return (
               <button
                 type="button"
-                className="ecosystem-node"
+                className={`ecosystem-node ${activeEcosystem === index ? 'is-active' : ''}`}
                 style={{ insetInlineStart: `${points[0]}%`, top: `${points[1]}%` }}
                 key={label}
                 aria-label={label}
+                aria-pressed={activeEcosystem === index}
+                onClick={() => setActiveEcosystem(activeEcosystem === index ? null : index)}
               >
                 <i aria-hidden="true" /><span>{label}</span>
               </button>

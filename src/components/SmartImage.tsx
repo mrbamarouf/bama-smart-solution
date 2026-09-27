@@ -4,7 +4,7 @@ type SmartImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   fallbackLabel?: string
 }
 
-export function SmartImage({ fallbackLabel = 'BAMA', className = '', ...props }: SmartImageProps) {
+export function SmartImage({ fallbackLabel = 'BAMA', className = '', src, ...props }: SmartImageProps) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {
@@ -15,5 +15,5 @@ export function SmartImage({ fallbackLabel = 'BAMA', className = '', ...props }:
     )
   }
 
-  return <img className={className} {...props} onError={() => setFailed(true)} />
+  return <img className={className} src={src} {...props} onError={() => setFailed(true)} />
 }

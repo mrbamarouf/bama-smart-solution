@@ -63,7 +63,7 @@ export function SiteHeader({ language }: { language: Language }) {
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="header-inner">
         <Link className="brand-lockup" to={`/${language}`} aria-label={siteConfig.brand}>
-          <img src={siteConfig.mark} alt="BAMA Smart Solution" />
+          <img src={siteConfig.markWhite} alt="BAMA Smart Solution" />
         </Link>
 
         <nav className="desktop-nav" aria-label={language === 'ar' ? 'التنقل الرئيسي' : 'Primary navigation'}>

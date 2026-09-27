@@ -71,7 +71,7 @@ export function BrandIntro({ language }: { language: Language }) {
             transition={{ delay: 2.2, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="intro-mark">
-              <img src={siteConfig.mark} alt="BAMA Smart Solution" />
+              <img src={siteConfig.markWhite} alt="BAMA Smart Solution" />
               <span className="intro-scan" aria-hidden="true" />
             </span>
             <strong>BAMA</strong>

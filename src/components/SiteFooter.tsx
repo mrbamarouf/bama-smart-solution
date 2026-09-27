@@ -17,7 +17,7 @@ export function SiteFooter({ language }: { language: Language }) {
       <div className="footer-main">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src={siteConfig.mark} alt="BAMA Smart Solution" />
+            <img src={siteConfig.markWhite} alt="BAMA Smart Solution" />
             <span><strong>BAMA</strong> SMART SOLUTION</span>
           </div>
           <p>{copy.footer.statement}</p>

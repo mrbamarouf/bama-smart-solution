@@ -64,11 +64,13 @@ export default function ProductsPage() {
                     loading={index < 2 ? 'eager' : 'lazy'}
                     fallbackLabel={localize(category.name, language)}
                   />
-                  <span className="category-serial">0{category.order}</span>
-                  <span className="category-signal" aria-hidden="true"><i /><i /></span>
                 </div>
 
                 <div className="category-world-copy">
+                  <div className="category-world-meta">
+                    <span className="category-serial">0{category.order}</span>
+                    <span className="category-signal" aria-hidden="true"><i /><i /></span>
+                  </div>
                   <span className={`availability ${isFuture ? '' : 'is-current'}`}>
                     {isFuture ? copy.productsPage.future : copy.productsPage.current}
                   </span>

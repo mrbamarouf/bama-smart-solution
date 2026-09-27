@@ -69,7 +69,7 @@ function RouteEffects() {
 function PageLoader() {
   return (
     <div className="page-loader" role="status" aria-label="Loading">
-      <img src={siteConfig.mark} alt="" />
+      <img src={siteConfig.markWhite} alt="" />
       <span />
     </div>
   )
