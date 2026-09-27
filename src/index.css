@@ -2220,11 +2220,11 @@ p {
   height: 190px;
   display: grid;
   place-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .intro-mark::before {
-  content: '';
+  content: none;
   position: absolute;
   width: 76%;
   aspect-ratio: 1;
@@ -2255,7 +2255,7 @@ p {
 }
 
 .intro-brand .intro-scan {
-  inset-block: -15%;
+  display: none;
 }
 
 .brand-intro > p {
