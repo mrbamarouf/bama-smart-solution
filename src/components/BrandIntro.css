@@ -1,0 +1,242 @@
+/* THE SIGNAL: scoped to the intro, never to the website below. */
+.signal-intro {
+  --signal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --logo-at: 3.55s;
+  --brand-at: 4.7s;
+  --statement-at: 4.94s;
+  --converge-at: 3.45s;
+  --exit-time: 500ms;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-intro);
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  background: transparent;
+  contain: layout paint;
+}
+.signal-intro:focus { outline: none; }
+.signal-veil, .signal-atmosphere, .signal-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.signal-veil { background: #020812; }
+.signal-atmosphere {
+  background: radial-gradient(ellipse at 50% 48%, rgb(6 26 58 / 68%), transparent 60%);
+  opacity: 0;
+  animation: signal-atmosphere-in 2s 0.65s ease-out forwards;
+}
+.signal-map {
+  position: absolute;
+  width: min(100%, 1440px);
+  height: 100%;
+  inset: 0;
+  margin: auto;
+  overflow: visible;
+}
+.signal-architecture {
+  stroke: #0868f2;
+  stroke-width: 0.65;
+  opacity: 0;
+  animation: signal-architecture-in 1.4s 1s ease-out forwards, signal-architecture-out 1s var(--converge-at) ease-out forwards;
+}
+.signal-connections {
+  transform-origin: center;
+  animation: signal-converge 750ms var(--converge-at) var(--signal-ease) forwards;
+}
+.signal-route {
+  stroke: #00bdf2;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 0.12 1.12;
+  stroke-dashoffset: 0.12;
+  opacity: 0;
+  animation: signal-travel 1.7s calc(0.95s + var(--route) * 0.16s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.signal-node { fill: #bdeeff; opacity: 0; animation: signal-node-on 700ms calc(2.2s + var(--node) * 0.16s) ease-out forwards; }
+.signal-node-halo { fill: #0868f2; fill-opacity: 0.16; }
+.signal-origin, .signal-first-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  opacity: 0;
+}
+.signal-origin {
+  width: 3px;
+  height: 3px;
+  margin: -1.5px;
+  background: #d1f4ff;
+  box-shadow: 0 0 12px 3px rgb(8 104 242 / 36%);
+  animation: signal-origin-on 2.1s 0.28s ease-out both;
+}
+.signal-first-pulse {
+  width: 80px;
+  height: 80px;
+  margin: -40px;
+  border: 1px solid rgb(0 189 242 / 24%);
+  background: radial-gradient(circle, rgb(8 104 242 / 8%), transparent 70%);
+  animation: signal-pulse 1.4s 0.5s ease-out both;
+}
+.signal-ignition {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 140px;
+  margin: -70px -130px;
+  background: radial-gradient(ellipse, rgb(225 248 255 / 8%), rgb(0 189 242 / 9%) 20%, rgb(8 104 242 / 6%) 42%, transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  animation: signal-ignite 700ms var(--converge-at) ease-out both;
+}
+.signal-identity {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(90%, 600px);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.signal-logo {
+  width: clamp(166px, 13.2vw, 216px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  filter: drop-shadow(0 0 7px rgb(0 189 242 / 13%));
+  opacity: 0;
+  animation: signal-logo-in 1.1s var(--logo-at) var(--signal-ease) forwards;
+}
+.signal-brand {
+  margin: 30px 0 0;
+  color: #fff;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  line-height: 1.5;
+  opacity: 0;
+  animation: signal-copy-in 550ms var(--brand-at) ease-out forwards;
+}
+.signal-statement {
+  margin: 18px 0 0;
+  color: #b8c9df;
+  font-size: 12px;
+  letter-spacing: 0.13em;
+  line-height: 1.8;
+  opacity: 0;
+  animation: signal-copy-in 550ms var(--statement-at) ease-out forwards;
+}
+.signal-intro[lang='ar'] .signal-statement { font-size: 19px; letter-spacing: 0; line-height: 1.9; }
+.signal-release {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  margin: -120px;
+  border-radius: 50%;
+  border: 1px solid rgb(0 189 242 / 32%);
+  background: radial-gradient(circle, transparent 53%, rgb(8 104 242 / 5%) 63%, rgb(0 189 242 / 9%) 68%, transparent 72%);
+  opacity: 0;
+  pointer-events: none;
+}
+.signal-skip {
+  position: absolute;
+  bottom: max(26px, env(safe-area-inset-bottom));
+  inset-inline-end: max(38px, env(safe-area-inset-right));
+  min-height: 44px;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 0;
+  background: transparent;
+  color: #a9b7cb;
+  font-size: 12px;
+  cursor: pointer;
+}
+.signal-skip span { color: #00bdf2; font-size: 16px; }
+.signal-intro[dir='rtl'] .signal-skip span { transform: scaleX(-1); }
+.signal-skip:hover { color: #fff; }
+.signal-skip:focus-visible { outline: 1px solid #00bdf2; outline-offset: 6px; }
+.signal-intro[data-phase='leaving'] .signal-veil,
+.signal-intro[data-phase='leaving'] .signal-atmosphere { animation: signal-veil-out var(--exit-time) ease-in forwards; }
+.signal-intro[data-phase='leaving'] .signal-field,
+.signal-intro[data-phase='leaving'] .signal-identity,
+.signal-intro[data-phase='leaving'] .signal-skip { animation: signal-veil-out 200ms ease-out forwards; }
+.signal-intro[data-phase='leaving'] .signal-release { animation: signal-release-out var(--exit-time) cubic-bezier(0.32, 0, 0.67, 0) forwards; }
+.signal-intro[data-skipped='true'] .signal-release { display: none; }
+
+/* Portrait choreography: separate SVG, rhythm, origin and text measure. */
+.signal-intro[data-composition='mobile'] {
+  --logo-at: 2.8s;
+  --brand-at: 3.52s;
+  --statement-at: 3.72s;
+  --converge-at: 2.6s;
+  --exit-time: 550ms;
+}
+.signal-intro[data-composition='mobile'] .signal-map { width: 100%; height: 100%; }
+.signal-intro[data-composition='mobile'] .signal-origin,
+.signal-intro[data-composition='mobile'] .signal-first-pulse { top: 86.49%; }
+.signal-intro[data-composition='mobile'] .signal-route { animation-duration: 1.75s; animation-delay: calc(0.48s + var(--route) * 0.24s); }
+.signal-intro[data-composition='mobile'] .signal-node { animation-delay: calc(1.2s + var(--node) * 0.24s); }
+.signal-intro[data-composition='mobile'] .signal-architecture { animation-delay: 0.8s, var(--converge-at); }
+.signal-intro[data-composition='mobile'] .signal-connections { transform-origin: 50% 43.4%; }
+.signal-intro[data-composition='mobile'] .signal-identity { top: 47%; width: calc(100% - 48px); }
+.signal-intro[data-composition='mobile'] .signal-logo { width: clamp(142px, 39vw, 166px); animation-duration: 850ms; }
+.signal-intro[data-composition='mobile'] .signal-brand { margin-top: 25px; font-size: 10px; letter-spacing: 0.2em; }
+.signal-intro[data-composition='mobile'] .signal-statement { margin-top: 20px; font-size: 11px; line-height: 1.95; }
+.signal-intro[data-composition='mobile'][lang='ar'] .signal-statement { font-size: 21px; line-height: 1.8; }
+.signal-intro[data-composition='mobile'] .signal-skip {
+  inset-inline-end: auto;
+  left: 50%;
+  bottom: calc(26px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+.signal-intro[data-composition='mobile'] .signal-release { top: 43.4%; }
+.signal-intro[data-skipped='true'] { --exit-time: 220ms; }
+
+@keyframes signal-atmosphere-in { to { opacity: 1; } }
+@keyframes signal-architecture-in { to { opacity: 0.22; } }
+@keyframes signal-architecture-out { from { opacity: 0.22; } to { opacity: 0.035; } }
+@keyframes signal-ignite { 40% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes signal-origin-on { 15%, 45% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes signal-pulse { 0% { opacity: 0; transform: scale(0.08); } 20% { opacity: 0.75; } 100% { opacity: 0; transform: scale(3.5); } }
+@keyframes signal-travel { 0% { opacity: 0; stroke-dashoffset: 0.12; } 12% { opacity: 0.8; } 85% { opacity: 0.8; } 100% { opacity: 0.2; stroke-dashoffset: -1; } }
+@keyframes signal-node-on { 35% { opacity: 1; } 100% { opacity: 0.6; } }
+@keyframes signal-converge { to { opacity: 0; transform: scale(0.16); } }
+@keyframes signal-logo-in { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+@keyframes signal-copy-in { to { opacity: 1; } }
+@keyframes signal-veil-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes signal-release-out { 0% { opacity: 0; transform: scale(0.7); } 20% { opacity: 0.7; } 100% { opacity: 0; transform: scale(10); } }
+
+/* Overrides the global reduction rule with gentle opacity only. */
+.signal-intro[data-reduced='true'] { --exit-time: 220ms; }
+.signal-intro[data-reduced='true'] .signal-field,
+.signal-intro[data-reduced='true'] .signal-ignition,
+.signal-intro[data-reduced='true'] .signal-release,
+.signal-intro[data-reduced='true'] .signal-atmosphere { display: none; }
+.signal-intro[data-reduced='true'] .signal-logo { animation: signal-copy-in 400ms 100ms ease-out both !important; }
+.signal-intro[data-reduced='true'] .signal-brand { animation: signal-copy-in 350ms 400ms ease-out both !important; }
+.signal-intro[data-reduced='true'] .signal-statement { animation: signal-copy-in 350ms 650ms ease-out both !important; }
+.signal-intro[data-reduced='true'][data-phase='leaving'] .signal-veil,
+.signal-intro[data-reduced='true'][data-phase='leaving'] .signal-identity,
+.signal-intro[data-reduced='true'][data-phase='leaving'] .signal-skip { animation: signal-veil-out 220ms ease-out both !important; }
+@media (prefers-reduced-motion: reduce) {
+  .signal-intro .signal-field, .signal-intro .signal-release { display: none; }
+}
+@media (max-height: 500px) and (max-width: 1023px) {
+  .signal-intro[data-composition='mobile'] .signal-logo { width: 100px; }
+  .signal-intro[data-composition='mobile'] .signal-brand { margin-top: 12px; }
+  .signal-intro[data-composition='mobile'] .signal-statement { margin-top: 10px; font-size: 11px; }
+  .signal-intro[data-composition='mobile'][lang='ar'] .signal-statement { font-size: 16px; }
+  .signal-intro[data-composition='mobile'] .signal-skip { bottom: calc(8px + env(safe-area-inset-bottom)); }
+}
