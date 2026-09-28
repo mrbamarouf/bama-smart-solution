@@ -161,8 +161,6 @@
   font-size: 12px;
   cursor: pointer;
 }
-.signal-skip span { color: #00bdf2; font-size: 16px; }
-.signal-intro[dir='rtl'] .signal-skip span { transform: scaleX(-1); }
 .signal-skip:hover { color: #fff; }
 .signal-skip:focus-visible { outline: 1px solid #00bdf2; outline-offset: 6px; }
 .signal-intro[data-phase='leaving'] .signal-veil,

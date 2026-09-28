@@ -50,8 +50,8 @@ export function SiteHeader({ language }: { language: Language }) {
   const alternatePath = useMemo(() => {
     const parts = location.pathname.split('/')
     parts[1] = alternateLanguage
-    return `${parts.join('/')}${location.hash}`
-  }, [alternateLanguage, location.hash, location.pathname])
+    return `${parts.join('/')}${location.search}${location.hash}`
+  }, [alternateLanguage, location.hash, location.pathname, location.search])
 
   const navPath = (id: string) => {
     if (id === 'products') return `/${language}/products`

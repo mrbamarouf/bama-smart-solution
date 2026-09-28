@@ -5,8 +5,6 @@ import type { Language } from '../types'
 import '../mobile/intro.css'
 import './BrandIntro.css'
 
-const INTRO_KEY = 'bama-intro-seen'
-
 // Independent architectural compositions, not a redraw of the approved logo.
 const desktopPaths = [
   'M600 400 H458 Q438 400 438 380 V248 H244 V320 H136',
@@ -25,17 +23,8 @@ const mobilePaths = [
 const desktopNodes = [[244, 248], [970, 214], [242, 552], [992, 526], [636, 178], [656, 624]]
 const mobileNodes = [[102, 625], [286, 477], [168, 510], [222, 316]]
 
-function shouldPlay() {
-  if (import.meta.env.DEV && new URLSearchParams(window.location.search).get('intro') === 'replay') return true
-  try {
-    return sessionStorage.getItem(INTRO_KEY) !== 'true'
-  } catch {
-    return false // Storage restrictions must never prevent access to the site.
-  }
-}
-
 function SignalIntro({ language }: { language: Language }) {
-  const [phase, setPhase] = useState<'playing' | 'leaving' | 'gone'>(() => shouldPlay() ? 'playing' : 'gone')
+  const [phase, setPhase] = useState<'playing' | 'leaving' | 'gone'>('playing')
   const [composition] = useState(() => window.matchMedia('(max-width: 1023px)').matches ? 'mobile' : 'desktop')
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   const [skipped, setSkipped] = useState(false)
@@ -59,8 +48,6 @@ function SignalIntro({ language }: { language: Language }) {
 
   useEffect(() => {
     if (!active) return
-    // Claim the session on entry, including skip, refresh and route changes.
-    try { sessionStorage.setItem(INTRO_KEY, 'true') } catch { /* fail open */ }
     const previousOverflow = document.body.style.overflow
     const previousFocus = document.activeElement
     document.body.style.overflow = 'hidden'
@@ -166,7 +153,7 @@ function SignalIntro({ language }: { language: Language }) {
         </p>
       </div>
       <div className="signal-release" aria-hidden="true" />
-      <button ref={skip} className="signal-skip" type="button" onClick={dismiss}>{content[language].skip}<span aria-hidden="true">↗</span></button>
+      <button ref={skip} className="signal-skip" type="button" onClick={dismiss}>{content[language].skip}</button>
     </div>
   )
 }

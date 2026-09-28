@@ -1,6 +1,6 @@
 export const content = {
   en: {
-    skip: 'Skip intro',
+    skip: 'Skip Intro',
     introLine: 'Connecting a smarter tomorrow.',
     nav: [
       ['home', 'Home'],
