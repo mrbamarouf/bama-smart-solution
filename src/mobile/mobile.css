@@ -681,6 +681,23 @@
   color: #a7b7c4;
   letter-spacing: 0.04em;
 }
+.m-footer .designer-credit {
+  width: min(100%, 190px);
+  margin-top: 12px;
+  padding: 10px 0 calc(4px + env(safe-area-inset-bottom));
+  gap: 8px;
+}
+.m-footer .designer-credit p {
+  font-size: 10px;
+  letter-spacing: 0.03em;
+}
+.m-footer[dir='rtl'] .designer-credit p,
+[dir='rtl'] .m-footer .designer-credit p {
+  letter-spacing: 0;
+}
+.m-footer .designer-credit img {
+  width: min(145px, 100%);
+}
 .m-products-page {
   padding: 115px 22px 36px;
   min-height: 100svh;

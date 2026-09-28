@@ -105,6 +105,7 @@ export const content = {
       statement: 'Connecting a smarter tomorrow.',
       country: 'Saudi Arabia',
       copyright: '© 2026 BAMA Smart Solution.',
+      designerCredit: 'Designed & Developed by',
     },
     productsPage: {
       title: 'Smart Products',
@@ -247,6 +248,7 @@ export const content = {
       statement: 'نربط اليوم بمستقبل أكثر ذكاءً.',
       country: 'المملكة العربية السعودية',
       copyright: '© 2026 BAMA Smart Solution.',
+      designerCredit: 'تصميم وتطوير',
     },
     productsPage: {
       title: 'المنتجات الذكية',

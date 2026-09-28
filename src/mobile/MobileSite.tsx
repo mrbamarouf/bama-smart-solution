@@ -32,6 +32,7 @@ import {
   Check,
   type LucideIcon,
 } from "lucide-react";
+import { DesignerCredit } from "../components/DesignerCredit";
 import { content } from "../content";
 import { contactConfig } from "../config/contact";
 import {
@@ -893,6 +894,7 @@ export default function MobileSite({ language }: Props) {
         </Link>
         <p>{content[language].footer.statement}</p>
         <small dir="ltr">{content[language].footer.copyright}</small>
+        <DesignerCredit language={language} />
       </footer>
     </div>
   );

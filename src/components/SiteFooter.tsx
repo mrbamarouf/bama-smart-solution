@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { content } from '../content'
 import { siteConfig } from '../config/site'
 import type { Language } from '../types'
+import { DesignerCredit } from './DesignerCredit'
 
 export function SiteFooter({ language }: { language: Language }) {
   const copy = content[language]
@@ -32,6 +33,7 @@ export function SiteFooter({ language }: { language: Language }) {
         <span>{copy.footer.country}</span>
         <span>{copy.footer.copyright}</span>
       </div>
+      <DesignerCredit language={language} />
     </footer>
   )
 }

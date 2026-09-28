@@ -1452,6 +1452,52 @@ p {
   font-size: 0.76rem;
 }
 
+.designer-credit {
+  width: min(100%, 260px);
+  margin: 34px auto 0;
+  padding: 20px 0 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.designer-credit p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+[dir='rtl'] .designer-credit p {
+  letter-spacing: 0;
+}
+
+.designer-credit a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.78;
+  transition: opacity 180ms ease, filter 180ms ease;
+}
+
+.designer-credit a:hover {
+  opacity: 0.94;
+  filter: brightness(1.06);
+}
+
+.designer-credit a:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.46);
+  outline-offset: 8px;
+}
+
+.designer-credit img {
+  display: block;
+  width: min(188px, 100%);
+  height: auto;
+}
+
 .page-hero {
   position: relative;
   min-height: 590px;
